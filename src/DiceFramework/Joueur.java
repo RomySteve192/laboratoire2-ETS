@@ -23,8 +23,12 @@ public class Joueur implements Comparable<Joueur> {
         this.des = listdes;
     }
 
-    public int getPoint() {
+    public int getPointJoueur() {
         return this.point;
+    }
+    
+    public void setPointJoueur(int pt){
+        this.point += pt;
     }
 
     public CollectionDe roulerLesDes() {

@@ -46,8 +46,8 @@ public class De implements Comparable<De> {
      * Sert à faire la compararaison d'un dé avec un autre
      *
      * @param d Dé à comparer
-     * @return -1 si le dé "o" a moins de faces 0 si le dé "o" a le même nombre
-     * de faces 1 si le dé "o" a plus de faces
+     * @return -1 si 
+     * de faces 1 si 
      */
     @Override
     public int compareTo(De d) {
