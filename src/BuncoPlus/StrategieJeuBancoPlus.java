@@ -27,14 +27,14 @@ public class StrategieJeuBancoPlus implements IStrategieJeu {
             Joueur joueur = (Joueur) listeJoueurIterator.next();
             do {
                 Iterator listeDeIterator = joueur.roulerLesDes().creerIterateur();
-                int[] tabNbFaceEgaux = this.nbFaceDesEgaux(listeDeIterator);
-                if (tabNbFaceEgaux[0] == 1 && tabNbFaceEgaux[1] == jeu.getnbTours()) {
+                Util util = this.nbFaceDesEgaux(listeDeIterator);
+                if (util.getNbFaceEgaux() == 1 && util.getNoFace() == jeu.getnbTours()) {
                     score += 1;
                     passerLaMain = false;
-                } else if (tabNbFaceEgaux[0] == 2 && tabNbFaceEgaux[1] == jeu.getnbTours()) {
+                } else if (util.getNbFaceEgaux() == 2 && util.getNoFace() == jeu.getnbTours()) {
                     score += 2;
                     passerLaMain = false;
-                } else if (tabNbFaceEgaux[0] == 3 && tabNbFaceEgaux[1] == jeu.getnbTours()) {
+                } else if (util.getNbFaceEgaux() == 3 && util.getNoFace() == jeu.getnbTours()) {
                     System.out.println("BUNCO!!!!");
                     score += 21;
                     passerLaMain = false;
@@ -49,49 +49,58 @@ public class StrategieJeuBancoPlus implements IStrategieJeu {
 
     }
 
-    private int[] nbFaceDesEgaux(Iterator listDes) {
+    private Util nbFaceDesEgaux(Iterator listDes) {
         int nbFaceEgaux = 0;
         int noFace = 0;
-        int[] tabNbFaceEgaux = new int[2];
-        ArrayList arrListDe = new ArrayList<De>();
+        
+        De unDe = (De)listDes.next();
+        
         while (listDes.hasnext()) {
             De de = (De) listDes.next();
-            arrListDe.add(de);
-        }
-        if (arrListDe.size() > 0) {
             nbFaceEgaux = 1;
-            De de = (De) arrListDe.get(0);
-            for (int i = 1; i < arrListDe.size(); i++) {
-                if (de.compareTo((De) arrListDe.get(i)) == 0) {
-                    nbFaceEgaux++;
-                    noFace = (int) de.getValeurCourantDe();
-                }
+            if (unDe.compareTo(de) == 0) {
+                nbFaceEgaux++;
+                noFace = (int) de.getValeurCourantDe();
             }
         }
-        tabNbFaceEgaux[0] = nbFaceEgaux;
-        tabNbFaceEgaux[1] = noFace;
-        return tabNbFaceEgaux;
+        
+        return new Util(nbFaceEgaux, noFace);
     }
 
     @Override
     public Joueur calculerLeVainqueur(Jeu jeu) {
-        Joueur vainqueur = null;
+        
         Iterator listeJoueurIterator = jeu.getListJoueur().creerIterateur();
+        Joueur vainqueur = (Joueur)listeJoueurIterator.next();
+        
         ArrayList arrListJoueur = new ArrayList<Joueur>();
         while (listeJoueurIterator.hasnext()) {
             Joueur joueur = (Joueur) listeJoueurIterator.next();
-            arrListJoueur.add(joueur);
-        }
-        if (arrListJoueur.size() > 0) {
-            vainqueur = (Joueur) arrListJoueur.get(0);
-            for (int i = 1; i < arrListJoueur.size(); i++) {
-                if (vainqueur.compareTo((Joueur) arrListJoueur.get(i)) == 1) {
-                    vainqueur = (Joueur) arrListJoueur.get(i);
-                }
+            if (vainqueur.compareTo(joueur) == 1) {
+                vainqueur = joueur;
             }
         }
 
         return vainqueur;
     }
 
+    private class Util{
+        
+        private int nbFaceEgaux;
+        private int noFace;
+
+        public Util(int nbFaceEgaux, int noFace){
+            this.nbFaceEgaux = nbFaceEgaux;
+            this.noFace = noFace;
+        }
+
+        public int getNbFaceEgaux(){
+            return this.nbFaceEgaux;
+        }
+        
+        public int getNoFace(){
+            return this.noFace;
+        }
+    }
 }
+
