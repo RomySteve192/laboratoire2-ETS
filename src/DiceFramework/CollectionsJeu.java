@@ -10,5 +10,10 @@ package DiceFramework;
  * @author Romy Steve
  */
 public interface CollectionsJeu {
+
+    /**
+     *
+     * @return
+     */
     public Iterator creerIterateur();
 }

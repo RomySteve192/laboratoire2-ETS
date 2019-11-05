@@ -10,6 +10,16 @@ package DiceFramework;
  * @author Romy Steve
  */
 public interface Iterator {
+
+    /**
+     *
+     * @return
+     */
     public Boolean hasnext();
+
+    /**
+     *
+     * @return
+     */
     public Object next();
 }

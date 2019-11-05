@@ -37,6 +37,9 @@ public class StrategieJeuBancoPlus implements IStrategieJeu {
                 } else if (util.getNbFaceEgaux() == 3 && util.getNoFace() == jeu.getnbTours()) {
                     System.out.println("BUNCO!!!!");
                     score += 21;
+                    passerLaMain = true;
+                } else if (util.getNbFaceEgaux() == 3 && util.getNoFace() != jeu.getnbTours()) {
+                    score += 5;
                     passerLaMain = false;
                 } else {
                     score += 0;
@@ -52,9 +55,9 @@ public class StrategieJeuBancoPlus implements IStrategieJeu {
     private Util nbFaceDesEgaux(Iterator listDes) {
         int nbFaceEgaux = 0;
         int noFace = 0;
-        
-        De unDe = (De)listDes.next();
-        
+
+        De unDe = (De) listDes.next();
+
         while (listDes.hasnext()) {
             De de = (De) listDes.next();
             nbFaceEgaux = 1;
@@ -63,17 +66,16 @@ public class StrategieJeuBancoPlus implements IStrategieJeu {
                 noFace = (int) de.getValeurCourantDe();
             }
         }
-        
+
         return new Util(nbFaceEgaux, noFace);
     }
 
     @Override
     public Joueur calculerLeVainqueur(Jeu jeu) {
-        
+
         Iterator listeJoueurIterator = jeu.getListJoueur().creerIterateur();
-        Joueur vainqueur = (Joueur)listeJoueurIterator.next();
-        
-        ArrayList arrListJoueur = new ArrayList<Joueur>();
+        Joueur vainqueur = (Joueur) listeJoueurIterator.next();
+
         while (listeJoueurIterator.hasnext()) {
             Joueur joueur = (Joueur) listeJoueurIterator.next();
             if (vainqueur.compareTo(joueur) == 1) {
@@ -84,23 +86,22 @@ public class StrategieJeuBancoPlus implements IStrategieJeu {
         return vainqueur;
     }
 
-    private class Util{
-        
+    private class Util {
+
         private int nbFaceEgaux;
         private int noFace;
 
-        public Util(int nbFaceEgaux, int noFace){
+        public Util(int nbFaceEgaux, int noFace) {
             this.nbFaceEgaux = nbFaceEgaux;
             this.noFace = noFace;
         }
 
-        public int getNbFaceEgaux(){
+        public int getNbFaceEgaux() {
             return this.nbFaceEgaux;
         }
-        
-        public int getNoFace(){
+
+        public int getNoFace() {
             return this.noFace;
         }
     }
 }
-

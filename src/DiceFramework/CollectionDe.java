@@ -10,28 +10,39 @@ package DiceFramework;
  * @author Romy Steve
  */
 public class CollectionDe implements CollectionsJeu {
+
     private De[] tabDe;
     private int indFin = 0;
     private int tailleIniTabDe;
-    
-    public CollectionDe(){
-        
+
+    /**
+     *
+     */
+    public CollectionDe() {
+
         this.tailleIniTabDe = 10;
         this.tabDe = new De[this.tailleIniTabDe];
     }
-    
-    public void ajouter(De d){
+
+    /**
+     *
+     * @param d
+     */
+    public void ajouter(De d) {
         this.tabDe[this.indFin] = d;
         this.indFin++;
-        
-        if(this.indFin == this.tabDe.length - 1){
+
+        if (this.indFin == this.tabDe.length - 1) {
             De[] tabDe2 = new De[this.tabDe.length + this.tailleIniTabDe];
-            System.arraycopy(this.tabDe,0,tabDe2,0,this.tabDe.length);
+            System.arraycopy(this.tabDe, 0, tabDe2, 0, this.tabDe.length);
             this.tabDe = tabDe2;
         }
     }
-    
-    
+
+    /**
+     *
+     * @return
+     */
     @Override
     public Iterator creerIterateur() {
         return new DesIterator(this.tabDe);

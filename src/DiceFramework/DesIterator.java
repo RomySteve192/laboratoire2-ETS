@@ -10,29 +10,40 @@ package DiceFramework;
  * @author Romy Steve
  */
 public class DesIterator implements Iterator {
-    
+
     De[] des;
-    int position= 0;
-    
-    public DesIterator(De[] listdes){
+    int position = 0;
+
+    /**
+     *
+     * @param listdes
+     */
+    public DesIterator(De[] listdes) {
         this.des = listdes;
     }
-    
-    
+
+    /**
+     *
+     * @return
+     */
     @Override
     public Boolean hasnext() {
-        if(this.position>= this.des.length || this.des[this.position] == null){   
+        if (this.position >= this.des.length || this.des[this.position] == null) {
             return false;
         } else {
-            return true; 
+            return true;
         }
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public Object next() {
         De d = this.des[this.position];
-        this.position = this.position+ 1;
+        this.position = this.position + 1;
         return d;
     }
-    
+
 }

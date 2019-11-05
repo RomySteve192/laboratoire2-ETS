@@ -10,59 +10,79 @@ package DiceFramework;
  * @author Romy Steve
  */
 public class Jeu {
-    
-    
+
     private final CollectionJoueur joueurs;
     private final int nbTours;
     private final IStrategieJeu strategieJeu;
     private int tourCourant;
-    
-    public Jeu(CollectionJoueur listJoueur, int nbT, IStrategieJeu strategie){
+
+    /**
+     *
+     * @param listJoueur
+     * @param nbT
+     * @param strategie
+     */
+    public Jeu(CollectionJoueur listJoueur, int nbT, IStrategieJeu strategie) {
         this.tourCourant = 1;
         this.joueurs = listJoueur;
         this.nbTours = nbT;
         this.strategieJeu = strategie;
     }
-    
-    public void incrementnbTours(){
-        if(this.tourCourant < this.nbTours){
+
+    /**
+     *
+     */
+    public void incrementnbTours() {
+        if (this.tourCourant < this.nbTours) {
             this.tourCourant++;
         }
     }
-    
-    public Boolean estFini(){
-        if(this.tourCourant == this.nbTours){
+
+    /**
+     *
+     * @return
+     */
+    public Boolean estFini() {
+        if (this.tourCourant == this.nbTours) {
             return true;
         }
         return false;
     }
-    
-    public int getnbTours(){
+
+    /**
+     *
+     * @return
+     */
+    public int getnbTours() {
         return this.nbTours;
     }
-    
-    public CollectionJoueur getListJoueur(){
+
+    /**
+     *
+     * @return
+     */
+    public CollectionJoueur getListJoueur() {
         return this.joueurs;
     }
-    
+
+    /**
+     *
+     */
     public void calculerScoreTour() {
-        if(estFini()){
+        if (estFini()) {
             throw new IllegalStateException("La partie est terminée");
         }
 
         this.strategieJeu.calculerScoreTour(this);
         this.incrementnbTours();
     }
-    
-    public Joueur calculerLeVainqueur(){
+
+    /**
+     *
+     * @return
+     */
+    public Joueur calculerLeVainqueur() {
         return this.strategieJeu.calculerLeVainqueur(this);
     }
-    
-    
-    
-    
-    
-    
-    
-    
+
 }

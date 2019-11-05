@@ -10,14 +10,26 @@ package DiceFramework;
  * @author Romy Steve
  */
 public abstract class FabriqueJeuDe {
-    public FabriqueJeuDe(){
+
+    /**
+     *
+     */
+    public FabriqueJeuDe() {
     }
 
-    public final Jeu creerUnJeu(int nbTour, int nbJoueur, IStrategieJeu strategieJeu){
+    /**
+     *
+     * @param nbTour
+     * @param nbJoueur
+     * @param strategieJeu
+     * @return
+     */
+    public final Jeu creerUnJeu(int nbTour, int nbJoueur, IStrategieJeu strategieJeu) {
         CollectionJoueur j = creerListJoueur(nbJoueur);
         return new Jeu(j, nbTour, strategieJeu);
     }
 
     protected abstract CollectionDe creerDes();
+
     protected abstract CollectionJoueur creerListJoueur(int nbJ);
 }

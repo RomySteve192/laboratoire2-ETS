@@ -18,6 +18,10 @@ public class De implements Comparable<De> {
 
     private final static Random rdm = new Random();
 
+    /**
+     *
+     * @param nbFace
+     */
     public De(int nbFace) {
         if (nbFace < 1) {
             throw new IllegalArgumentException("Le nombre de face doit être superieur à 1");
@@ -26,10 +30,17 @@ public class De implements Comparable<De> {
         this.valeurCourant = 0;
     }
 
+    /**
+     *
+     */
     public void roulerDe() {
         this.valeurCourant = rdm.nextInt(this.nbreFace) + 1;
     }
 
+    /**
+     *
+     * @return
+     */
     public Integer getValeurCourantDe() {
         if (this.valeurCourant == 0) {
             throw new IllegalStateException("Le dé n'a pas été lancé.");
@@ -38,6 +49,10 @@ public class De implements Comparable<De> {
         return this.valeurCourant;
     }
 
+    /**
+     *
+     * @return
+     */
     public Integer getNbreDeFaces() {
         return this.nbreFace;
     }
@@ -46,8 +61,7 @@ public class De implements Comparable<De> {
      * Sert à faire la compararaison d'un dé avec un autre
      *
      * @param d Dé à comparer
-     * @return -1 si 
-     * de faces 1 si 
+     * @return -1 si de faces 1 si
      */
     @Override
     public int compareTo(De d) {
@@ -58,7 +72,4 @@ public class De implements Comparable<De> {
         return this.getValeurCourantDe().compareTo(d.getValeurCourantDe());
     }
 
-
-    
-    
 }

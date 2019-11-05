@@ -15,6 +15,10 @@ public class Joueur implements Comparable<Joueur> {
     private int point;
     private CollectionDe des;
 
+    /**
+     *
+     * @param listdes
+     */
     public Joueur(CollectionDe listdes) {
         if (des == null) {
             throw new IllegalArgumentException("Les dés n'existent pas");
@@ -23,14 +27,26 @@ public class Joueur implements Comparable<Joueur> {
         this.des = listdes;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getPointJoueur() {
         return this.point;
     }
-    
-    public void setPointJoueur(int pt){
+
+    /**
+     *
+     * @param pt
+     */
+    public void setPointJoueur(int pt) {
         this.point += pt;
     }
 
+    /**
+     *
+     * @return
+     */
     public CollectionDe roulerLesDes() {
         Iterator DesIterator = des.creerIterateur();
         while (DesIterator.hasnext()) {
@@ -40,6 +56,10 @@ public class Joueur implements Comparable<Joueur> {
         return des;
     }
 
+    /**
+     *
+     * @param pts
+     */
     public void incrementPoint(int pts) {
         if (pts < 0) {
             throw new IllegalArgumentException("Les points doivent être supérieure à 1");
@@ -48,6 +68,10 @@ public class Joueur implements Comparable<Joueur> {
         this.point += pts;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getName() {
         return this.name;
     }

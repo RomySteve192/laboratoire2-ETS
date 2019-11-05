@@ -10,6 +10,17 @@ package DiceFramework;
  * @author Romy Steve
  */
 public interface IStrategieJeu {
-    public int calculerScoreTour(Jeu jeu);
+
+    /**
+     *
+     * @param jeu
+     */
+    public void calculerScoreTour(Jeu jeu);
+
+    /**
+     *
+     * @param jeu
+     * @return
+     */
     public Joueur calculerLeVainqueur(Jeu jeu);
 }
