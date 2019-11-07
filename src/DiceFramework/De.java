@@ -72,4 +72,24 @@ public class De implements Comparable<De> {
         return this.getValeurCourantDe().compareTo(d.getValeurCourantDe());
     }
 
+	public int getNbreFace() {
+		return nbreFace;
+	}
+
+	public void setNbreFace(int nbreFace) {
+		this.nbreFace = nbreFace;
+	}
+
+	public int getValeurCourant() {
+		return valeurCourant;
+	}
+
+	public void setValeurCourant(int valeurCourant) {
+		this.valeurCourant = valeurCourant;
+	}
+
+	public static Random getRdm() {
+		return rdm;
+	}
+
 }

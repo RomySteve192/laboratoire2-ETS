@@ -11,7 +11,23 @@ package DiceFramework;
  */
 public class DesIterator implements Iterator {
 
-    De[] des;
+    public De[] getDes() {
+		return des;
+	}
+
+	public void setDes(De[] des) {
+		this.des = des;
+	}
+
+	public int getPosition() {
+		return position;
+	}
+
+	public void setPosition(int position) {
+		this.position = position;
+	}
+
+	De[] des;
     int position = 0;
 
     /**

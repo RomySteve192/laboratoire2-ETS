@@ -47,4 +47,28 @@ public class CollectionDe implements CollectionsJeu {
     public Iterator creerIterateur() {
         return new DesIterator(this.tabDe);
     }
+
+	public De[] getTabDe() {
+		return tabDe;
+	}
+
+	public void setTabDe(De[] tabDe) {
+		this.tabDe = tabDe;
+	}
+
+	public int getIndFin() {
+		return indFin;
+	}
+
+	public void setIndFin(int indFin) {
+		this.indFin = indFin;
+	}
+
+	public int getTailleIniTabDe() {
+		return tailleIniTabDe;
+	}
+
+	public void setTailleIniTabDe(int tailleIniTabDe) {
+		this.tailleIniTabDe = tailleIniTabDe;
+	}
 }

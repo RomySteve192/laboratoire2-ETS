@@ -25,7 +25,7 @@ public class CollectionJoueurTest  {
      */
 
 
-         CollectionDe tabDe = new CollectionDe();
+        private  CollectionDe tabDe = new CollectionDe();
 
 
 
@@ -43,10 +43,12 @@ public class CollectionJoueurTest  {
     public void TestCalculer(){
 
     for (int i= 0 ; i < 20 ; i++){
-        tabDe.ajouter(new De(6));
-        tabDe.ajouter(new De(7));
+        this.tabDe.ajouter(new De(6));
+       this. tabDe.ajouter(new De(7));
     }
-    this.j = new Joueur(tabDe);
+    this.j = new Joueur(this.tabDe);
+    
+    
 
 
         for (int i= 0 ; i < 7 ; i++){

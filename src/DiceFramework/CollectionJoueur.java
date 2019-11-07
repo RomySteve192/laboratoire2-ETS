@@ -11,7 +11,31 @@ package DiceFramework;
  */
 public class CollectionJoueur implements CollectionsJeu {
 
-    private Joueur[] tabJoueur;
+    public Joueur[] getTabJoueur() {
+		return tabJoueur;
+	}
+
+	public void setTabJoueur(Joueur[] tabJoueur) {
+		this.tabJoueur = tabJoueur;
+	}
+
+	public int getIndFin() {
+		return indFin;
+	}
+
+	public void setIndFin(int indFin) {
+		this.indFin = indFin;
+	}
+
+	public int getTailleIniTabJoueur() {
+		return tailleIniTabJoueur;
+	}
+
+	public void setTailleIniTabJoueur(int tailleIniTabJoueur) {
+		this.tailleIniTabJoueur = tailleIniTabJoueur;
+	}
+
+	private Joueur[] tabJoueur;
     private int indFin = 0;
     private int tailleIniTabJoueur;
 

@@ -11,7 +11,23 @@ package DiceFramework;
  */
 public class JoueursIterator implements Iterator {
 
-    Joueur[] joueurs;
+    public Joueur[] getJoueurs() {
+		return joueurs;
+	}
+
+	public void setJoueurs(Joueur[] joueurs) {
+		this.joueurs = joueurs;
+	}
+
+	public int getPosition() {
+		return position;
+	}
+
+	public void setPosition(int position) {
+		this.position = position;
+	}
+
+	Joueur[] joueurs;
     int position = 0;
 
     /**
