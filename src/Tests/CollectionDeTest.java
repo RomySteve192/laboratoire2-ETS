@@ -4,7 +4,8 @@ import DiceFramework.CollectionDe;
 import DiceFramework.De;
 import org.junit.Test;
 
-import static junit.framework.Assert.assertTrue;
+import static org.junit.Assert.assertTrue;
+
 
 /**
  * @author anhe Pascal

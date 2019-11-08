@@ -11,25 +11,7 @@ package DiceFramework;
  */
 public class Joueur implements Comparable<Joueur> {
 
-    public int getPoint() {
-		return point;
-	}
-
-	public void setPoint(int point) {
-		this.point = point;
-	}
-
-	public CollectionDe getDes() {
-		return des;
-	}
-
-	public void setDes(CollectionDe des) {
-		this.des = des;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
+    
 
 	private String name;
     private int point;
@@ -111,5 +93,27 @@ public class Joueur implements Comparable<Joueur> {
 
         return ((Integer) this.point).compareTo(j.point);
     }
+    
+    
+    
+    public int getPoint() {
+		return point;
+	}
+
+	public void setPoint(int point) {
+		this.point = point;
+	}
+
+	public CollectionDe getDes() {
+		return des;
+	}
+
+	public void setDes(CollectionDe des) {
+		this.des = des;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 }

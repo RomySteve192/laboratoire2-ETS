@@ -11,26 +11,7 @@ package DiceFramework;
  */
 public class Jeu {
 
-    public int getTourCourant() {
-		return tourCourant;
-	}
-
-	public void setTourCourant(int tourCourant) {
-		this.tourCourant = tourCourant;
-	}
-
-	public CollectionJoueur getJoueurs() {
-		return joueurs;
-	}
-
-	public int getNbTours() {
-		return nbTours;
-	}
-
-	public IStrategieJeu getStrategieJeu() {
-		return strategieJeu;
-	}
-
+   
 	private final CollectionJoueur joueurs;
     private final int nbTours;
     private final IStrategieJeu strategieJeu;
@@ -104,5 +85,27 @@ public class Jeu {
     public Joueur calculerLeVainqueur() {
         return this.strategieJeu.calculerLeVainqueur(this);
     }
+    
+    
+    public int getTourCourant() {
+		return tourCourant;
+	}
+
+	public void setTourCourant(int tourCourant) {
+		this.tourCourant = tourCourant;
+	}
+
+	public CollectionJoueur getJoueurs() {
+		return joueurs;
+	}
+
+	public int getNbTours() {
+		return nbTours;
+	}
+
+	public IStrategieJeu getStrategieJeu() {
+		return strategieJeu;
+	}
+
 
 }

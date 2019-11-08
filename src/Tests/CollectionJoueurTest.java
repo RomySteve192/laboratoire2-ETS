@@ -14,21 +14,7 @@ import static junit.framework.TestCase.assertTrue;
 
 
 public class CollectionJoueurTest  {
-    private CollectionJoueur tabJoueur = new CollectionJoueur();
-    private Joueur j ;
-
-
-    /**
-     * Constructeur de la classe qui va
-     * initialiser les parametres qui vont permettre de
-     * tester les methodes de la classe CollectionJoeur
-     */
-
-
-        private  CollectionDe tabDe = new CollectionDe();
-
-
-
+    
 
     /**
      * Cette methode  va tester
@@ -41,20 +27,24 @@ public class CollectionJoueurTest  {
 
 @Test
     public void TestCalculer(){
+	
+	CollectionJoueur tabJoueur = new CollectionJoueur();
+	CollectionDe tabDe = new CollectionDe();
 
-    for (int i= 0 ; i < 20 ; i++){
-        this.tabDe.ajouter(new De(6));
-       this. tabDe.ajouter(new De(7));
+    for(int i= 0 ; i < 20 ; i++)
+    {
+        tabDe.ajouter(new De(6));
+       tabDe.ajouter(new De(7));
     }
-    this.j = new Joueur(this.tabDe);
+
+    
+    Joueur j = new Joueur(tabDe);
     
     
 
 
         for (int i= 0 ; i < 7 ; i++){
-            tabJoueur.ajouter(j);
-
-        }
+            tabJoueur.ajouter(j);}
 
         assertTrue(tabJoueur.getTabJoueur().length>10);
     }

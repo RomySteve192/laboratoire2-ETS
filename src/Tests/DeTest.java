@@ -7,24 +7,21 @@ import static junit.framework.TestCase.assertTrue;
 
 public class DeTest  {
 
-    private De monDe;
-    private  int nbFace = 6;
-    public DeTest(){
-        monDe = new De(nbFace);
-
-    }
-
-
+	
     @Test
     public void TestroulerDe () throws Exception{
-        int valeur = monDe.getValeurCourantDe();
+    	
+    	int nbFace = 6;
+    	De monDe = new De(nbFace);
         monDe.roulerDe();
-        assertTrue(monDe.getValeurCourantDe()!= valeur);
+        assertTrue(monDe.getValeurCourantDe() >0 && monDe.getValeurCourantDe() < 7);
     }
 
-
-    @Test
+    
+@Test
     public void TestgetNbreDeFaces() throws Exception {
+    	int nbFace = 6;
+    	De monDe = new De(nbFace);
         assertTrue(monDe.getNbreDeFaces()> 0 && monDe.getNbreDeFaces()<7);
     }
 }
