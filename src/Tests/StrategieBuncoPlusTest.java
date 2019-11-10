@@ -6,10 +6,10 @@ import DiceFramework.Jeu;
 public class StrategieBuncoPlusTest {
 
 	
-	public void calculerScoreTourTest() {
+	/**public void calculerScoreTourTest() {
 
 		StrategieJeuBancoPlus sjbp = new  StrategieJeuBancoPlus();
 		Jeu j = new Jeu();
 		sjbp.calculerScoreTour();
-	}
+	}**/
 }
